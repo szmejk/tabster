@@ -1,4 +1,4 @@
-import { all, put, call, select, takeEvery } from 'redux-saga/effects'
+import { all, put, call, select, takeEvery, delay } from 'redux-saga/effects'
 import { TABS_ACTIONS, tabsSearchFetched, tabsSearchError } from '../actions/tabs'
 import { getTabs } from '../../services/api'
 
@@ -19,5 +19,6 @@ export function* fetchTabs({ payload }) {
     yield put(tabsSearchError('Found no tabs meeting your criteria'))
     return
   }
+  yield delay(500)
   yield put(tabsSearchFetched(tabs))
 }

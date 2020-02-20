@@ -18,10 +18,8 @@ const SearchScreenContainer = ({ preferences }) => {
     <ThemeProvider theme={preferences.theme === themeTypes.light ? lightTheme : darkTheme}>
       <GlobalStyles />
       <Header />
-      <>
-        <Search />
-        <List />
-      </>
+      <Search />
+      <List />
     </ThemeProvider>
   )
 }

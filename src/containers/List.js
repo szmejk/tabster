@@ -1,7 +1,8 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import styled from 'styled-components'
+import styled, { withTheme } from 'styled-components'
 import { connect } from 'react-redux'
+import ReactLoading from 'react-loading'
 import { Card } from '../components/Card'
 import { tabLinkBuilder } from '../utils/strings'
 
@@ -18,11 +19,11 @@ const ListWrapper = styled.div`
   justify-content: flex-start;
 `
 
-const ListContainer = ({ isFetching, error, tabs }) => {
+const ListContainer = ({ isFetching, error, tabs, theme }) => {
   if (isFetching) {
     return (
       <ListWrapper>
-        <div>Loading</div>
+        <ReactLoading type="spinningBubbles" color={theme.colors.secondary} />
       </ListWrapper>
     )
   }
@@ -55,4 +56,4 @@ ListContainer.propTypes = {
   ).isRequired,
 }
 
-export const List = connect(mapStateToProps)(ListContainer)
+export const List = connect(mapStateToProps)(withTheme(ListContainer))
