@@ -1,5 +1,5 @@
 import { PREFERENCES_ACTIONS } from '../actions/preferences'
-import { tabTypes } from '../../utils/constants'
+import { tabTypes } from '../../utils/strings'
 
 const initialState = {
   type: tabTypes.all,

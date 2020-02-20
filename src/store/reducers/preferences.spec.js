@@ -1,6 +1,6 @@
 import { updateTabsType } from '../actions/preferences'
 import { preferencesReducer } from './preferences'
-import { tabTypes } from '../../utils/constants'
+import { tabTypes } from '../../utils/strings'
 
 describe('Preferences reducer', () => {
   it('should update prefered tab type ', () => {

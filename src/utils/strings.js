@@ -5,3 +5,5 @@ export const tabTypes = {
   player: 'PLAYER',
   bass: 'TEXT_BASS_TAB',
 }
+
+export const tabsUrlBuilder = pattern => `http://www.songsterr.com/a/ra/songs.json?pattern=${pattern}`
