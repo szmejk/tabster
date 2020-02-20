@@ -1,5 +1,5 @@
 import axios from 'axios'
-import { tabsUrlBuilder, tabTypes } from '../utils/strings'
+import { tabsUrlBuilder, tabTypesMap } from '../utils/strings'
 import { validateTabs } from './validators'
 
 export const getTabs = async (pattern, tabType) => {
@@ -12,7 +12,7 @@ export const getTabs = async (pattern, tabType) => {
       return null
     }
 
-    if (tabType === tabTypes.all) {
+    if (tabType === tabTypesMap.all) {
       return tabs
     }
 

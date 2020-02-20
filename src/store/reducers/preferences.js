@@ -1,8 +1,9 @@
 import { PREFERENCES_ACTIONS } from '../actions/preferences'
-import { tabTypes } from '../../utils/strings'
+import { tabTypesMap } from '../../utils/strings'
 
 const initialState = {
-  type: tabTypes.all,
+  type: tabTypesMap.all,
+  theme: 'light',
 }
 
 export const preferencesReducer = (state = initialState, action) => {
@@ -11,6 +12,12 @@ export const preferencesReducer = (state = initialState, action) => {
       return {
         ...state,
         type: action.payload,
+      }
+    }
+    case PREFERENCES_ACTIONS.UPDATE_THEME: {
+      return {
+        ...state,
+        theme: action.payload,
       }
     }
     default: {

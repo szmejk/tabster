@@ -1,13 +1,28 @@
-import { updateTabsType } from '../actions/preferences'
+import { updateTabsType, updateTheme } from '../actions/preferences'
 import { preferencesReducer } from './preferences'
-import { tabTypes } from '../../utils/strings'
+import { tabTypesMap, themeTypes } from '../../utils/strings'
 
 describe('Preferences reducer', () => {
-  it('should update prefered tab type ', () => {
-    const updateAction = updateTabsType(tabTypes.chords)
+  const initialState = {
+    type: tabTypesMap.all,
+    theme: themeTypes.light,
+  }
 
-    expect(preferencesReducer({}, updateAction)).toMatchObject({
-      type: tabTypes.chords,
+  it('should update prefered tab type ', () => {
+    const updateAction = updateTabsType(tabTypesMap.chords)
+
+    expect(preferencesReducer(initialState, updateAction)).toMatchObject({
+      ...initialState,
+      type: tabTypesMap.chords,
+    })
+  })
+
+  it('should update prefered theme', () => {
+    const updateAction = updateTheme(themeTypes.dark)
+
+    expect(preferencesReducer(initialState, updateAction)).toMatchObject({
+      ...initialState,
+      theme: themeTypes.dark,
     })
   })
 })

@@ -18,5 +18,5 @@ export const validateTabs = response => {
   if (!response || !response.data || !Array.isArray(response.data) || response.data.length === 0) {
     return null
   }
-  return response.data.map(tab => validateTab(tab)).filter(tab => tab != null) // response.data.map(tab => validateTab(tab))
+  return response.data.map(tab => validateTab(tab)).filter(tab => tab != null)
 }
