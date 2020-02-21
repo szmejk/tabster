@@ -1,6 +1,5 @@
 # tabster
-Search app based on songsterrs API. Check it out on [surge]
-(http://succinct-lock.surge.sh/).
+Search app based on songsterrs API. Check it out on [surge](http://succinct-lock.surge.sh/).
 
 You can also run it:
 
