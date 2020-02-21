@@ -1,6 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import styled, { withTheme } from 'styled-components'
+import uuid4 from 'uuid/v4'
 import { connect } from 'react-redux'
 import ReactLoading from 'react-loading'
 import { Card } from '../components/Card'
@@ -34,11 +35,13 @@ const ListContainer = ({ isFetching, error, tabs, theme }) => {
       </ListWrapper>
     )
   }
-  return tabs.map(tab => (
+  return (
     <ListWrapper>
-      <Card url={tabLinkBuilder(tab.id)} key={tab.id} tab={tab} />
+      {tabs.map(tab => (
+        <Card url={tabLinkBuilder(tab.id)} key={uuid4()} tab={tab} />
+      ))}
     </ListWrapper>
-  ))
+  )
 }
 
 ListContainer.propTypes = {
@@ -54,6 +57,11 @@ ListContainer.propTypes = {
       tabTypes: PropTypes.arrayOf(PropTypes.string).isRequired,
     })
   ).isRequired,
+  theme: PropTypes.shape({
+    colors: PropTypes.shape({
+      secondary: PropTypes.string.isRequired,
+    }).isRequired,
+  }).isRequired,
 }
 
 export const List = connect(mapStateToProps)(withTheme(ListContainer))

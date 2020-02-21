@@ -15,6 +15,10 @@ const Container = styled.div`
   align-items: center;
   height: 45px;
   margin-bottom: 48px;
+  @media (max-width: 600px) {
+    height: 35px;
+    margin-bottom: 32px;
+  }
 `
 const mapStateToProps = state => ({
   tabType: state.preferences.type,

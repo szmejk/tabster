@@ -1,17 +1,22 @@
+import Joi from '@hapi/joi'
+
+const tabSchema = Joi.object({
+  id: Joi.number().required(),
+  title: Joi.string().required(),
+  type: Joi.string().required(),
+  tabTypes: Joi.array()
+    .items(Joi.string().required())
+    .min(1)
+    .required(),
+  artist: Joi.object({
+    name: Joi.string().required(),
+  }).unknown(true),
+}).unknown(true)
+
 export const validateTab = tab => {
-  if (
-    !tab ||
-    !tab.id ||
-    !tab.title ||
-    !tab.type === 'Song' ||
-    !tab.tabTypes ||
-    !Array.isArray(tab.tabTypes) ||
-    !tab.artist ||
-    !tab.artist.name
-  ) {
-    return null
-  }
-  return tab
+  const { error, value } = tabSchema.validate(tab)
+  if (error) return null
+  return value
 }
 
 export const validateTabs = response => {

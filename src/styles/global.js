@@ -12,7 +12,6 @@ export const GlobalStyles = createGlobalStyle`
         margin: 0;
         padding: 0;
         min-height: 100vh;
-        transition: background-color 0.2s ease-in;
-        transition: color 0.2s ease-in;
+        transition: background-color 0.25s ease-in,  color 0.25s ease-in;
     }
 `

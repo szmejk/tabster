@@ -44,7 +44,7 @@ describe('validateTab', () => {
     expect(validateTab(incorrectTab)).toEqual(null)
   })
 
-  it('return tab if tab data is correct', () => {
+  it('returns tab if tab data is correct', () => {
     expect(validateTab(correctTab)).toMatchObject(correctTab)
   })
 })
